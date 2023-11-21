@@ -14,4 +14,8 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
 application = get_wsgi_application()
+<<<<<<< HEAD
 app=application
+=======
+app=application
+>>>>>>> 509ca6413fc314024ff37de41f9d0e1fedc9be99

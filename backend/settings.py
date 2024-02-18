@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@^mr!*-ijuf_c=sxk=6z+j()jdadh)hexd^ld31h2pwpqkt=e8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [".vercel.app",".now.sh"]
+ALLOWED_HOSTS = [".vercel.app",".now.sh","*"]
 
 
 # Application definition
@@ -86,6 +86,43 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'djongo',
+#             'NAME': 'Portfolio',
+#             'ENFORCE_SCHEMA': False,
+#             'CLIENT': {
+#                 'host': ''
+#             }  
+#         }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'CLIENT': {
+#             'host': 'mongodb+srv://anshvarshney20libra:ansh2012@cluster0.2ta0nkk.mongodb.net/?retryWrites=true&w=majority', # Replace with your MongoDB server address
+#             'port': 27017,               # Replace with your MongoDB port if different
+#             'username': 'anshvarshney20libra', # Replace with your MongoDB username (optional)
+#             'password': 'ansh2012', # Replace with your MongoDB password (optional)
+#             # 'authSource': 'your_auth_database', # Replace with your MongoDB authentication database (optional)
+#         },
+#         'NAME': 'Portfolio',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         #'ENGINE': 'django.db.backends.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'render',
+#         'USER': 'portfolio_api_7e8k_user',
+#         'PASSWORD': 'geee2A6ozOo0f6XpPITqN7RTZyRLyUwe',
+#         'HOST': 'dpg-cn8p95acn0vc738ofvlg-a',
+#         'PORT': '5432',
+#     }
+# }
 
 DATABASES = {
     'default': {

@@ -98,20 +98,17 @@ def post_image(request):
     return render(request, 'data.html', {'form': form})
 
 
-@login_required(login_url='login')
 def update(request, project_id):
-    projects = project.objects.get(id=project_id)
-    form = project_form(instance=projects)
+    project_instance = project.objects.get(id=project_id)
+    form = project_form(instance=project_instance)
 
     if request.method == 'POST':
-        form = project_form(request.POST, request.FILES)
+        form = project_form(request.POST, request.FILES, instance=project_instance)
         if form.is_valid():
             form.save()
-            form = project_form({})
             return redirect('/')
     context = {'form': form}
     return render(request, 'data.html', context)
-
 
 @login_required(login_url='login')
 def display(request):
@@ -130,18 +127,18 @@ def delete(request, project_id):
         return redirect('display')
 
 def updateimage(request, certificate_id):
-    project_obj = get_object_or_404(certificates, id=certificate_id)
-    form = CertificateForm(instance=project_obj)
+    certificate_instance = certificates.objects.get(id=certificate_id)
+    form = CertificateForm(instance=certificate_instance)
 
     if request.method == 'POST':
-        form = CertificateForm(request.POST, request.FILES, instance=project_obj)
+        form = CertificateForm(request.POST, request.FILES, instance=certificate_instance)
         if form.is_valid():
             form.save()
             return redirect('/display-image')
 
     context = {'form': form}
     return render(request, 'data.html', context)
-
+    
 @login_required(login_url='login')
 def displayimage(request):
     project_obj = certificates.objects.all()
